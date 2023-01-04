@@ -1,29 +1,29 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div
+    class="min-h-screen grid grid-rows-[1fr_auto] grid-cols-1 overflow-hidden"
+  >
+    <Crypto name="Bitcoin" />
+    <Cryptocurrencies heading="Top Cryptocurrencies" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<script setup>
+import Cryptocurrencies from "./components/Cryptocurrencies/Cryptocurrencies.vue";
+import Crypto from "./components/Crypto/Crypto.vue";
+</script>
+
+<style>
+.price-text-gradient {
+  background: linear-gradient(to right, #4f5054, #1e1f23);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.header-container-gradient {
+  background: linear-gradient(to right, #cbebec, #bfe4e8, #bbe4e7);
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.footer-container-gradient {
+  background: linear-gradient(to right, #484c53, #2a2b32, #1e1f23);
 }
 </style>
