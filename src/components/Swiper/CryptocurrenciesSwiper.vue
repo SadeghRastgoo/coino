@@ -45,11 +45,7 @@
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import CryptoCard from "../Cryptocurrencies/CryptoCard.vue";
-
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 const props = defineProps(["data", "isFetching"]);
 const windowInnerWidth = ref(window.innerWidth > 1023 ? 64 : 20);
