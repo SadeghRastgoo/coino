@@ -2,7 +2,7 @@
   <div
     class="min-h-screen grid grid-rows-[1fr_auto] grid-cols-1 overflow-hidden"
   >
-    <Cryo :name="currentCryptoName[1]" :symbol="currentCryptoName[0]" />
+    <Crypto :name="currentCryptoName[1]" :symbol="currentCryptoName[0]" />
     <Cryptocurrencies
       @clickedCrypto="handleCryptoCardClick"
       heading="Top Cryptocurrencies"
