@@ -15,6 +15,7 @@
         </button>
       </div>
       <CryptocurrenciesSwiper
+        @clickedCrypto="handleCryptoCardClick"
         :isFetching="isFetching"
         :data="cryptocurrencies"
       />
@@ -31,7 +32,7 @@ import CryptocurrenciesSwiper from "./../Swiper/CryptocurrenciesSwiper.vue";
 defineProps({
   heading: String,
 });
-
+const emit = defineEmits(["clickedCrypto"]);
 const toast = useToast();
 const isFetching = ref(true);
 const cryptocurrencies = ref([]);
@@ -53,6 +54,8 @@ const getTrendingCryptocurrencies = async (limit = 30) => {
     });
 };
 getTrendingCryptocurrencies();
-</script>
 
-<style></style>
+const handleCryptoCardClick = (cryptoName) => {
+  emit("clickedCrypto", cryptoName);
+};
+</script>

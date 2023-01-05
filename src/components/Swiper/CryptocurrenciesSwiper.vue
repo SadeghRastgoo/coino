@@ -21,6 +21,7 @@
       class="h-full"
     >
       <CryptoCard
+        @click="handleCryptoCardClick([el.CoinInfo.Name, el.CoinInfo.FullName])"
         :name="el.CoinInfo.FullName"
         :icon="el.CoinInfo.ImageUrl"
         :price="el.RAW.USD.PRICE"
@@ -43,10 +44,16 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { getCurrentInstance } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import CryptoCard from "../Cryptocurrencies/CryptoCard.vue";
 import "swiper/css";
 
+const emit = defineEmits(["clickedCrypto"]);
 const props = defineProps(["data", "isFetching"]);
 const windowInnerWidth = ref(window.innerWidth > 1023 ? 64 : 20);
+
+const handleCryptoCardClick = (cryptoName) => {
+  emit("clickedCrypto", cryptoName);
+};
 </script>

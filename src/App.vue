@@ -2,14 +2,24 @@
   <div
     class="min-h-screen grid grid-rows-[1fr_auto] grid-cols-1 overflow-hidden"
   >
-    <Crypto name="Bitcoin" />
-    <Cryptocurrencies heading="Top Cryptocurrencies" />
+    <Cryo :name="currentCryptoName[1]" :symbol="currentCryptoName[0]" />
+    <Cryptocurrencies
+      @clickedCrypto="handleCryptoCardClick"
+      heading="Top Cryptocurrencies"
+    />
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Cryptocurrencies from "./components/Cryptocurrencies/Cryptocurrencies.vue";
 import Crypto from "./components/Crypto/Crypto.vue";
+
+const currentCryptoName = ref(["BTC", "Bitcoin"]);
+
+const handleCryptoCardClick = (cryptoName) => {
+  currentCryptoName.value = cryptoName;
+};
 </script>
 
 <style>

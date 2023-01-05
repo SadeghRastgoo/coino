@@ -11,8 +11,7 @@
 </template>
 
 <script setup>
-import { VueApexCharts } from "vue3-apexcharts";
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 
 const props = defineProps(["data"]);
 
@@ -75,4 +74,8 @@ const chartOptions = {
     },
   },
 };
+
+watch(props, () => {
+  passDataSeries();
+});
 </script>
